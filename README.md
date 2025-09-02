@@ -426,8 +426,8 @@ Apache 2.0 License - see [LICENSE](LICENSE) for details.
 <td align="center">
 <a href="https://discord.gg/infinity" target="_blank"><strong>Discord</strong></a>
 </td>
-<td align="center">
-<a href="https://www.reddit.com/r/infinity/" target="_blank"><strong>r/infinity</strong></a>
+
+
 </td>
 <td align="center">
 <a href="https://github.com/infinity/infinity/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop" target="_blank"><strong>Feature Requests</strong></a>
