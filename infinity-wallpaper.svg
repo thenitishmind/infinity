@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a23;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e1e3f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a0845;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#5f27cd;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a55eea;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+      <stop offset="25%" style="stop-color:#5f27cd;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#a55eea;stop-opacity:0.8" />
+      <stop offset="75%" style="stop-color:#ff6b6b;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Animation for pulsing effect -->
+    <animateTransform id="pulse" attributeName="transform" type="scale" 
+                     values="1;1.05;1" dur="3s" repeatCount="indefinite"/>
+    
+    <!-- Filter for glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Subtle particle animation -->
+    <circle id="particle" r="2" fill="white" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#backgroundGradient)"/>
+  
+  <!-- Background stars/particles -->
+  <g opacity="0.4">
+    <use href="#particle" x="150" y="200"><animate attributeName="cy" values="200;180;200" dur="3s" repeatCount="indefinite"/></use>
+    <use href="#particle" x="300" y="150"><animate attributeName="cy" values="150;130;150" dur="2.5s" repeatCount="indefinite"/></use>
+    <use href="#particle" x="1600" y="300"><animate attributeName="cy" values="300;280;300" dur="4s" repeatCount="indefinite"/></use>
+    <use href="#particle" x="1400" y="800"><animate attributeName="cy" values="800;780;800" dur="3.5s" repeatCount="indefinite"/></use>
+    <use href="#particle" x="200" y="900"><animate attributeName="cy" values="900;880;900" dur="2.8s" repeatCount="indefinite"/></use>
+    <use href="#particle" x="1700" y="200"><animate attributeName="cy" values="200;180;200" dur="3.2s" repeatCount="indefinite"/></use>
+  </g>
+  
+  <!-- Main infinity symbol -->
+  <g transform="translate(960, 540)">
+    <!-- Glow layer -->
+    <path d="M-200,0 C-200,-80 -120,-80 -80,-40 C-40,0 40,0 80,-40 C120,-80 200,-80 200,0 C200,80 120,80 80,40 C40,0 -40,0 -80,40 C-120,80 -200,80 -200,0 Z" 
+          fill="none" stroke="url(#glowGradient)" stroke-width="20" filter="url(#glow)" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Main infinity shape -->
+    <path d="M-200,0 C-200,-80 -120,-80 -80,-40 C-40,0 40,0 80,-40 C120,-80 200,-80 200,0 C200,80 120,80 80,40 C40,0 -40,0 -80,40 C-120,80 -200,80 -200,0 Z" 
+          fill="none" stroke="url(#infinityGradient)" stroke-width="12">
+      <animateTransform ref="pulse"/>
+    </path>
+    
+    <!-- Inner smaller infinity -->
+    <path d="M-120,0 C-120,-48 -72,-48 -48,-24 C-24,0 24,0 48,-24 C72,-48 120,-48 120,0 C120,48 72,48 48,24 C24,0 -24,0 -48,24 C-72,48 -120,48 -120,0 Z" 
+          fill="none" stroke="url(#infinityGradient)" stroke-width="6" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="15s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Floating infinity symbols -->
+  <g opacity="0.3">
+    <path d="M100,200 C100,180 120,180 130,190 C140,200 160,200 170,190 C180,180 200,180 200,200 C200,220 180,220 170,210 C160,200 140,200 130,210 C120,220 100,220 100,200 Z" 
+          fill="none" stroke="url(#infinityGradient)" stroke-width="3">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M1720,800 C1720,780 1740,780 1750,790 C1760,800 1780,800 1790,790 C1800,780 1820,780 1820,800 C1820,820 1800,820 1790,810 C1780,800 1760,800 1750,810 C1740,820 1720,820 1720,800 Z" 
+          fill="none" stroke="url(#infinityGradient)" stroke-width="3">
+      <animateTransform attributeName="transform" type="rotate" values="360;0" dur="12s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Subtle text -->
+  <text x="960" y="720" text-anchor="middle" fill="white" opacity="0.4" font-family="Arial, sans-serif" font-size="32" font-weight="300">
+    ∞ INFINITY ∞
+  </text>
+</svg>

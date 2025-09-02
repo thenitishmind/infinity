@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity - Detailed Workflow Chart</title>
+    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .workflow-section {
+            margin-bottom: 40px;
+        }
+        .workflow-section h2 {
+            color: #1e3a8a;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #60a5fa;
+        }
+        .mermaid {
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+        }
+        .phase-explanation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .phase-card {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid #3b82f6;
+        }
+        .phase-card h3 {
+            color: #1e40af;
+            margin: 0 0 15px;
+            font-size: 1.3em;
+        }
+        .phase-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .phase-card li {
+            margin-bottom: 8px;
+            color: #475569;
+        }
+        .tool-ecosystem {
+            background: #fef3c7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f59e0b;
+        }
+        .tool-ecosystem h3 {
+            color: #92400e;
+            margin: 0 0 15px;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .tool-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tool-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .input { background: #dbeafe; }
+        .processing { background: #fef3c7; }
+        .execution { background: #dcfce7; }
+        .output { background: #fce7f3; }
+        .error { background: #fee2e2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>∞ Infinity Workflow Chart</h1>
+            <p>Complete Process Flow - From Input to Infinite Possibilities</p>
+        </div>
+        
+        <div class="content">
+            <div class="workflow-section">
+                <h2>🔄 Master Workflow Overview</h2>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color input"></div>
+                        <span>Input Processing</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color processing"></div>
+                        <span>Analysis & Planning</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color execution"></div>
+                        <span>Execution</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color output"></div>
+                        <span>Output & Results</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color error"></div>
+                        <span>Error Handling</span>
+                    </div>
+                </div>
+                
+                <div class="mermaid">
+                    graph TD
+                        A[🎯 User Input] --> B{📝 Input Type Analysis}
+                        
+                        B -->|Text Task| C[📊 Task Analysis Engine]
+                        B -->|🖼️ Image Upload| D[🔍 Image Processing AI]
+                        B -->|📁 File Reference| E[📂 File Context Loader]
+                        
+                        C --> F[🧠 Context Building Intelligence]
+                        D --> F
+                        E --> F
+                        
+                        F --> G[🏗️ Project Structure Analysis]
+                        G --> H[🌳 AST Parsing Engine]
+                        H --> I[🔗 Dependency Mapping]
+                        
+                        I --> J{⚡ Task Complexity Assessment}
+                        
+                        J -->|Simple Task| K[⚡ Direct Execution Path]
+                        J -->|Complex Task| L[📋 Multi-Step Planning Engine]
+                        
+                        K --> M[🛠️ Intelligent Tool Selection]
+                        L --> N[📝 Step-by-Step Breakdown]
+                        N --> M
+                        
+                        M --> O{🔧 Tool Router}
+                        
+                        O -->|📁 File Operations| P[📂 File System Controller]
+                        O -->|💻 Terminal Commands| Q[⌨️ Terminal Integration]
+                        O -->|🌐 Browser Tasks| R[🤖 Browser Automation Engine]
+                        O -->|🔍 Code Analysis| S[📊 Tree-sitter Parser]
+                        O -->|🔎 Search Operations| T[⚡ Ripgrep Search Engine]
+                        O -->|🧪 Testing| U[🧪 Test Execution Engine]
+                        
+                        P --> V[🔐 Permission Gateway]
+                        Q --> V
+                        R --> V
+                        U --> V
+                        S --> W[📈 Analysis Results]
+                        T --> W
+                        
+                        V --> X{👤 User Approval Required?}
+                        X -->|✅ Approved| Y[🚀 Execute Operation]
+                        X -->|❌ Denied| Z[🔄 Alternative Strategy Planning]
+                        
+                        Y --> AA[📊 Real-time Output Monitoring]
+                        Z --> N
+                        
+                        AA --> BB{✅ Operation Success Check}
+                        BB -->|✅ Success| CC[🔄 Context Update Engine]
+                        BB -->|❌ Failure| DD[🚨 Advanced Error Handler]
+                        
+                        DD --> EE[🔍 Error Classification & Analysis]
+                        EE --> FF[🔧 Auto-fix Intelligence]
+                        FF --> GG{🎯 Fix Success Rate}
+                        GG -->|High Confidence| Y
+                        GG -->|Low Confidence| HH[👤 User Consultation Required]
+                        HH --> Z
+                        
+                        CC --> II{📋 More Steps Required?}
+                        II -->|Yes| M
+                        II -->|No| JJ[📋 Comprehensive Final Review]
+                        
+                        JJ --> KK[🎨 Result Presentation Engine]
+                        KK --> LL[💬 User Feedback Collection]
+                        
+                        LL --> MM{😊 User Satisfaction Check}
+                        MM -->|✅ Satisfied| NN[🎉 Task Complete - Success!]
+                        MM -->|🔄 Needs Refinement| OO[📝 Refinement Request Handler]
+                        OO --> C
+                        
+                        W --> CC
+                        
+                        classDef inputStyle fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#1e40af
+                        classDef processStyle fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+                        classDef execStyle fill:#dcfce7,stroke:#10b981,stroke-width:2px,color:#047857
+                        classDef outputStyle fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#be185d
+                        classDef errorStyle fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#dc2626
+                        
+                        class A,B,C,D,E inputStyle
+                        class F,G,H,I,J,L,N,M,O processStyle
+                        class K,P,Q,R,S,T,U,V,X,Y,AA execStyle
+                        class CC,II,JJ,KK,LL,MM,NN,W outputStyle
+                        class DD,EE,FF,GG,HH,Z,OO errorStyle
+                </div>
+            </div>
+
+            <div class="workflow-section">
+                <h2>🏗️ Detailed Phase Breakdown</h2>
+                <div class="phase-explanation">
+                    <div class="phase-card">
+                        <h3>🎯 Phase 1: Input Processing & Understanding</h3>
+                        <ul>
+                            <li><strong>Multi-Modal Input Analysis:</strong> Processes text, images, and file references</li>
+                            <li><strong>Context Intelligence:</strong> Builds comprehensive project understanding</li>
+                            <li><strong>Semantic Parsing:</strong> Extracts intent and requirements from user input</li>
+                            <li><strong>Project Structure Mapping:</strong> Analyzes file systems and dependencies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>🧠 Phase 2: Intelligence & Strategy</h3>
+                        <ul>
+                            <li><strong>Complexity Assessment:</strong> Determines optimal approach strategy</li>
+                            <li><strong>Multi-Step Planning:</strong> Breaks complex tasks into manageable steps</li>
+                            <li><strong>Resource Allocation:</strong> Selects appropriate tools and services</li>
+                            <li><strong>Risk Assessment:</strong> Identifies potential issues and mitigation strategies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>🚀 Phase 3: Execution Engine</h3>
+                        <ul>
+                            <li><strong>Permission System:</strong> Ensures user control and safety</li>
+                            <li><strong>Multi-Tool Coordination:</strong> Seamlessly orchestrates various tools</li>
+                            <li><strong>Real-time Monitoring:</strong> Tracks progress and adapts to changes</li>
+                            <li><strong>Performance Optimization:</strong> Efficient resource utilization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>🔧 Phase 4: Quality Assurance & Error Recovery</h3>
+                        <ul>
+                            <li><strong>Advanced Error Detection:</strong> Comprehensive issue identification</li>
+                            <li><strong>Self-Healing Capabilities:</strong> Automatic problem resolution</li>
+                            <li><strong>Intelligent Retry Logic:</strong> Smart failure recovery mechanisms</li>
+                            <li><strong>Learning from Failures:</strong> Continuous improvement through experience</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>✅ Phase 5: Results & Continuous Learning</h3>
+                        <ul>
+                            <li><strong>Comprehensive Validation:</strong> Multi-layer result verification</li>
+                            <li><strong>User Experience Focus:</strong> Clear presentation and feedback collection</li>
+                            <li><strong>Knowledge Retention:</strong> Learns from every interaction</li>
+                            <li><strong>Performance Analytics:</strong> Continuous optimization based on results</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>🔄 Phase 6: Infinite Feedback Loop</h3>
+                        <ul>
+                            <li><strong>User Satisfaction Tracking:</strong> Measures success and areas for improvement</li>
+                            <li><strong>Adaptive Learning:</strong> Improves based on user feedback and patterns</li>
+                            <li><strong>Context Memory:</strong> Remembers project specifics for future tasks</li>
+                            <li><strong>Continuous Evolution:</strong> Self-improving system capabilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-ecosystem">
+                <h3>🛠️ Infinity Tool Ecosystem</h3>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <div class="icon">📁</div>
+                        <strong>File System</strong><br>
+                        <small>Create, edit, move, delete files and directories</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">💻</div>
+                        <strong>Terminal</strong><br>
+                        <small>Execute commands and scripts with monitoring</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">🌐</div>
+                        <strong>Browser Automation</strong><br>
+                        <small>Web interaction, testing, and screenshot capture</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">🔍</div>
+                        <strong>Code Analysis</strong><br>
+                        <small>AST parsing, syntax checking, dependency analysis</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">⚡</div>
+                        <strong>Search Engine</strong><br>
+                        <small>Fast text search across large codebases</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">🧪</div>
+                        <strong>Testing Framework</strong><br>
+                        <small>Automated testing and quality assurance</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">🔗</div>
+                        <strong>MCP Integration</strong><br>
+                        <small>Model Context Protocol for extensibility</small>
+                    </div>
+                    <div class="tool-item">
+                        <div class="icon">📊</div>
+                        <strong>Analytics</strong><br>
+                        <small>Performance monitoring and optimization</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workflow-section">
+                <h2>🎯 Key Success Factors</h2>
+                <div class="phase-explanation">
+                    <div class="phase-card">
+                        <h3>🔐 Safety & Control</h3>
+                        <ul>
+                            <li>Human-in-the-loop approval for all operations</li>
+                            <li>Granular permission system</li>
+                            <li>Safe execution environment</li>
+                            <li>Rollback capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>🧠 Intelligence & Adaptability</h3>
+                        <ul>
+                            <li>Context-aware decision making</li>
+                            <li>Learning from past interactions</li>
+                            <li>Adaptive strategy selection</li>
+                            <li>Continuous improvement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <h3>⚡ Performance & Efficiency</h3>
+                        <ul>
+                            <li>Optimized tool selection</li>
+                            <li>Parallel processing where possible</li>
+                            <li>Resource-efficient operations</li>
+                            <li>Smart caching and context management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Infinity ∞</strong> - Where every line of code opens up unlimited potential</p>
+            <p><em>This workflow represents the complete process from user input to successful task completion</em></p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'cardinal'
+            },
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#2563eb',
+                lineColor: '#6b7280',
+                secondaryColor: '#f3f4f6',
+                tertiaryColor: '#fef3c7'
+            }
+        });
+    </script>
+</body>
+</html>

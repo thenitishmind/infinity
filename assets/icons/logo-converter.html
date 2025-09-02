@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infinity Logo - PNG Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        svg { border: 1px solid #ccc; margin: 20px 0; }
+        .download-btn { background: #007acc; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Infinity Logo</h1>
+        <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#3730a3;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#581c87;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f472b6;stop-opacity:1" />
+                </linearGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="256" height="256" rx="32" ry="32" fill="url(#bgGradient)"/>
+            <g transform="translate(128, 128)">
+                <path d="M -60 0 C -60 -25, -35 -45, 0 -20 C 35 -45, 60 -25, 60 0 C 60 25, 35 45, 0 20 C -35 45, -60 25, -60 0 Z" 
+                      fill="url(#infinityGradient)" 
+                      filter="url(#glow)"
+                      stroke="#ffffff" 
+                      stroke-width="2"/>
+                <circle cx="-30" cy="0" r="8" fill="#ffffff" opacity="0.8"/>
+                <circle cx="30" cy="0" r="8" fill="#ffffff" opacity="0.8"/>
+                <text x="-80" y="60" fill="#60a5fa" font-family="monospace" font-size="24" font-weight="bold">&lt;</text>
+                <text x="70" y="60" fill="#60a5fa" font-family="monospace" font-size="24" font-weight="bold">/&gt;</text>
+            </g>
+            <text x="128" y="220" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">INFINITY</text>
+        </svg>
+        
+        <button class="download-btn" onclick="downloadPNG()">Download as PNG</button>
+        
+        <script>
+            function downloadPNG() {
+                const svg = document.querySelector('svg');
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const data = (new XMLSerializer()).serializeToString(svg);
+                const DOMURL = window.URL || window.webkitURL || window;
+                
+                canvas.width = 256;
+                canvas.height = 256;
+                
+                const img = new Image();
+                const svgBlob = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+                const url = DOMURL.createObjectURL(svgBlob);
+                
+                img.onload = function () {
+                    ctx.drawImage(img, 0, 0);
+                    DOMURL.revokeObjectURL(url);
+                    
+                    const imgURI = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+                    const evt = new MouseEvent('click', { view: window, bubbles: false, cancelable: true });
+                    const a = document.createElement('a');
+                    a.setAttribute('download', 'infinity-logo.png');
+                    a.setAttribute('href', imgURI);
+                    a.setAttribute('target', '_blank');
+                    a.dispatchEvent(evt);
+                };
+                
+                img.src = url;
+            }
+        </script>
+    </div>
+</body>
+</html>
